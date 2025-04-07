@@ -1,32 +1,32 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  LineChart, 
-  Line, 
-  AreaChart, 
+import {
+  LineChart,
+  Line,
+  AreaChart,
   Area,
-  BarChart, 
+  BarChart,
   Bar,
   PieChart,
   Pie,
   Cell,
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  Legend, 
-  ResponsiveContainer 
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
 } from 'recharts';
-import { 
-  Shield, 
-  AlertTriangle, 
-  TrendingUp, 
-  BarChart3, 
+import {
+  Shield,
+  AlertTriangle,
+  TrendingUp,
+  BarChart3,
   PieChart as PieChartIcon,
-  FileText, 
-  Eye, 
-  Lock, 
-  Copy, 
+  FileText,
+  Eye,
+  Lock,
+  Copy,
   BrainCircuit,
   RefreshCw,
   Info
@@ -61,10 +61,10 @@ const valuationData = [
 ];
 
 const infringementData = [
-  { name: 'Visual', value: 35 },
-  { name: 'Audio', value: 25 },
-  { name: 'Text', value: 20 },
-  { name: 'Code', value: 15 },
+  { name: 'Visual - Character', value: 35 },
+  { name: 'Audio Content', value: 25 },
+  { name: 'Written Works', value: 20 },
+  { name: 'Visual - Landmark', value: 15 },
   { name: 'Other', value: 5 },
 ];
 
@@ -95,22 +95,22 @@ const RISK_COLORS = {
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  
+
   // Animated variants for components
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.1
       }
     }
   };
-  
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
       transition: { duration: 0.5 }
     }
@@ -119,7 +119,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      
+
       {/* Dashboard Header */}
       <div className="pt-24 pb-6 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,7 +143,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Dashboard Tabs */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Tabs defaultValue="overview" value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -164,7 +164,7 @@ const Dashboard = () => {
               <FileText className="mr-2 h-4 w-4" /> Reports
             </TabsTrigger>
           </TabsList>
-          
+
           {/* Overview Tab */}
           <TabsContent value="overview">
             <motion.div
@@ -189,21 +189,21 @@ const Dashboard = () => {
                     <div className="flex flex-col items-center mb-6">
                       <div className="relative w-40 h-40 flex items-center justify-center mb-4">
                         <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle 
-                            cx="50" 
-                            cy="50" 
-                            r="45" 
-                            fill="transparent" 
-                            stroke="#1a1a1a" 
-                            strokeWidth="10" 
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            fill="transparent"
+                            stroke="#1a1a1a"
+                            strokeWidth="10"
                           />
-                          <circle 
-                            cx="50" 
-                            cy="50" 
-                            r="45" 
-                            fill="transparent" 
-                            stroke="#7B2CBF" 
-                            strokeWidth="10" 
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            fill="transparent"
+                            stroke="#7B2CBF"
+                            strokeWidth="10"
                             strokeDasharray="282.7"
                             strokeDashoffset={(282.7 * (1 - 0.78))}
                             strokeLinecap="round"
@@ -224,7 +224,7 @@ const Dashboard = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
                       <div className="bg-background/30 p-3 rounded-lg">
                         <div className="flex justify-between items-center mb-2">
@@ -251,7 +251,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* Recent Alerts */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -264,42 +264,40 @@ const Dashboard = () => {
                   <CardContent>
                     <div className="space-y-4">
                       {[
-                        { 
-                          title: "Potential Infringement Detected", 
+                        {
+                          title: "Potential Infringement Detected",
                           description: "Similar content found on marketplace platform",
                           time: "2 hours ago",
                           severity: "high"
                         },
-                        { 
-                          title: "Copyright Registration Expiring", 
+                        {
+                          title: "Copyright Registration Expiring",
                           description: "Renewal required within 30 days",
                           time: "1 day ago",
                           severity: "medium"
                         },
-                        { 
-                          title: "AI Model Trained on Your Content", 
+                        {
+                          title: "AI Model Trained on Your Content",
                           description: "Detected unauthorized use in training data",
                           time: "3 days ago",
                           severity: "medium"
                         },
-                        { 
-                          title: "New Licensing Opportunity", 
+                        {
+                          title: "New Licensing Opportunity",
                           description: "Matching business interested in your IP",
                           time: "1 week ago",
                           severity: "low"
                         }
                       ].map((alert, index) => (
                         <div key={index} className="flex items-start space-x-3 p-3 rounded-lg bg-background/30 hover:bg-background/40 transition-colors cursor-pointer">
-                          <div className={`mt-0.5 p-1.5 rounded-full ${
-                            alert.severity === 'high' ? 'bg-red-500/20' : 
-                            alert.severity === 'medium' ? 'bg-amber-500/20' : 
-                            'bg-green-500/20'
-                          }`}>
-                            <AlertTriangle className={`h-4 w-4 ${
-                              alert.severity === 'high' ? 'text-red-500' : 
-                              alert.severity === 'medium' ? 'text-amber-500' : 
-                              'text-green-500'
-                            }`} />
+                          <div className={`mt-0.5 p-1.5 rounded-full ${alert.severity === 'high' ? 'bg-red-500/20' :
+                            alert.severity === 'medium' ? 'bg-amber-500/20' :
+                              'bg-green-500/20'
+                            }`}>
+                            <AlertTriangle className={`h-4 w-4 ${alert.severity === 'high' ? 'text-red-500' :
+                              alert.severity === 'medium' ? 'text-amber-500' :
+                                'text-green-500'
+                              }`} />
                           </div>
                           <div className="flex-1">
                             <h4 className="text-sm font-medium text-white">{alert.title}</h4>
@@ -317,7 +315,7 @@ const Dashboard = () => {
                   </CardFooter>
                 </Card>
               </motion.div>
-              
+
               {/* IP Asset Summary */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -334,7 +332,7 @@ const Dashboard = () => {
                         <span className="text-white font-medium">24</span>
                       </div>
                       <Separator className="bg-white/10" />
-                      
+
                       <div>
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-white/70 text-sm">By Type</span>
@@ -343,7 +341,7 @@ const Dashboard = () => {
                           <div className="flex justify-between items-center">
                             <div className="flex items-center">
                               <div className="w-3 h-3 rounded-full bg-reiv-purple-light mr-2"></div>
-                              <span className="text-white text-xs">Visual Content</span>
+                              <span className="text-white text-xs">Visual - Character Content</span>
                             </div>
                             <span className="text-white text-xs">8</span>
                           </div>
@@ -364,15 +362,15 @@ const Dashboard = () => {
                           <div className="flex justify-between items-center">
                             <div className="flex items-center">
                               <div className="w-3 h-3 rounded-full bg-indigo-500 mr-2"></div>
-                              <span className="text-white text-xs">Software/Code</span>
+                              <span className="text-white text-xs">Visual - Landmark Content</span>
                             </div>
                             <span className="text-white text-xs">4</span>
                           </div>
                         </div>
                       </div>
-                      
+
                       <Separator className="bg-white/10" />
-                      
+
                       <div>
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-white/70 text-sm">Protection Status</span>
@@ -408,7 +406,7 @@ const Dashboard = () => {
                   </CardFooter>
                 </Card>
               </motion.div>
-              
+
               {/* Valuation Trend */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -424,23 +422,23 @@ const Dashboard = () => {
                         <AreaChart data={valuationData}>
                           <defs>
                             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="5%" stopColor="#7B2CBF" stopOpacity={0.8}/>
-                              <stop offset="95%" stopColor="#7B2CBF" stopOpacity={0}/>
+                              <stop offset="5%" stopColor="#7B2CBF" stopOpacity={0.8} />
+                              <stop offset="95%" stopColor="#7B2CBF" stopOpacity={0} />
                             </linearGradient>
                           </defs>
                           <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                           <XAxis dataKey="name" stroke="#666" />
-                          <YAxis stroke="#666" tickFormatter={(value) => `$${value/1000}k`} />
-                          <Tooltip 
+                          <YAxis stroke="#666" tickFormatter={(value) => `$${value / 1000}k`} />
+                          <Tooltip
                             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}
                             formatter={(value) => [`$${value.toLocaleString()}`, 'Value']}
                           />
-                          <Area 
-                            type="monotone" 
-                            dataKey="value" 
-                            stroke="#9D4EDD" 
-                            fillOpacity={1} 
-                            fill="url(#colorValue)" 
+                          <Area
+                            type="monotone"
+                            dataKey="value"
+                            stroke="#9D4EDD"
+                            fillOpacity={1}
+                            fill="url(#colorValue)"
                           />
                         </AreaChart>
                       </ResponsiveContainer>
@@ -457,7 +455,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* Infringement Distribution */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -484,7 +482,7 @@ const Dashboard = () => {
                               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                           </Pie>
-                          <Tooltip 
+                          <Tooltip
                             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}
                             formatter={(value) => [`${value}%`, 'Risk Level']}
                           />
@@ -494,8 +492,8 @@ const Dashboard = () => {
                     <div className="mt-2 grid grid-cols-2 gap-2">
                       {infringementData.map((entry, index) => (
                         <div key={index} className="flex items-center">
-                          <div 
-                            className="w-3 h-3 rounded-full mr-2" 
+                          <div
+                            className="w-3 h-3 rounded-full mr-2"
                             style={{ backgroundColor: COLORS[index % COLORS.length] }}
                           ></div>
                           <span className="text-white/70 text-xs">{entry.name}: {entry.value}%</span>
@@ -505,7 +503,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* AI Index Score */}
               <motion.div variants={itemVariants} className="md:col-span-2">
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -522,14 +520,14 @@ const Dashboard = () => {
                           <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                           <XAxis dataKey="name" stroke="#666" />
                           <YAxis domain={[0, 100]} stroke="#666" />
-                          <Tooltip 
+                          <Tooltip
                             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}
                             formatter={(value) => [`${value}`, 'AI Index']}
                           />
-                          <Line 
-                            type="monotone" 
-                            dataKey="index" 
-                            stroke="#9D4EDD" 
+                          <Line
+                            type="monotone"
+                            dataKey="index"
+                            stroke="#9D4EDD"
                             strokeWidth={2}
                             dot={{ r: 4, fill: '#9D4EDD' }}
                             activeDot={{ r: 6, fill: '#9D4EDD' }}
@@ -565,7 +563,7 @@ const Dashboard = () => {
               </motion.div>
             </motion.div>
           </TabsContent>
-          
+
           {/* Risk Scores Tab */}
           <TabsContent value="risk-scores">
             <motion.div
@@ -590,24 +588,24 @@ const Dashboard = () => {
                           <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                           <XAxis dataKey="name" stroke="#666" />
                           <YAxis domain={[0, 100]} stroke="#666" />
-                          <Tooltip 
+                          <Tooltip
                             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}
                           />
                           <Legend />
-                          <Line 
-                            type="monotone" 
-                            dataKey="score" 
-                            name="Risk Score" 
-                            stroke="#9D4EDD" 
+                          <Line
+                            type="monotone"
+                            dataKey="score"
+                            name="Risk Score"
+                            stroke="#9D4EDD"
                             strokeWidth={2}
                             dot={{ r: 4, fill: '#9D4EDD' }}
                             activeDot={{ r: 6, fill: '#9D4EDD' }}
                           />
-                          <Line 
-                            type="monotone" 
-                            dataKey="threshold" 
-                            name="Risk Threshold" 
-                            stroke="#666" 
+                          <Line
+                            type="monotone"
+                            dataKey="threshold"
+                            name="Risk Threshold"
+                            stroke="#666"
                             strokeDasharray="5 5"
                             strokeWidth={2}
                             dot={false}
@@ -641,7 +639,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* Risk Breakdown */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -665,20 +663,20 @@ const Dashboard = () => {
                           <div className="flex justify-between items-center">
                             <span className="text-white text-sm">{risk.name}</span>
                             <Badge className={`
-                              ${risk.status === 'high' ? 'bg-red-500/20 text-red-500 border-red-500/30' : 
-                                risk.status === 'medium' ? 'bg-amber-500/20 text-amber-500 border-amber-500/30' : 
-                                'bg-green-500/20 text-green-500 border-green-500/30'}
+                              ${risk.status === 'high' ? 'bg-red-500/20 text-red-500 border-red-500/30' :
+                                risk.status === 'medium' ? 'bg-amber-500/20 text-amber-500 border-amber-500/30' :
+                                  'bg-green-500/20 text-green-500 border-green-500/30'}
                             `}>
                               {risk.score}
                             </Badge>
                           </div>
-                          <Progress 
-                            value={risk.score} 
-                            className="h-2 bg-white/10" 
+                          <Progress
+                            value={risk.score}
+                            className="h-2 bg-white/10"
                             indicatorClassName={`
-                              ${risk.status === 'high' ? 'bg-red-500' : 
-                                risk.status === 'medium' ? 'bg-amber-500' : 
-                                'bg-green-500'}
+                              ${risk.status === 'high' ? 'bg-red-500' :
+                                risk.status === 'medium' ? 'bg-amber-500' :
+                                  'bg-green-500'}
                             `}
                           />
                         </div>
@@ -687,7 +685,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* Deepfake Risk Analysis */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -714,7 +712,7 @@ const Dashboard = () => {
                             <Cell fill={RISK_COLORS.medium} />
                             <Cell fill={RISK_COLORS.high} />
                           </Pie>
-                          <Tooltip 
+                          <Tooltip
                             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}
                             formatter={(value) => [`${value}%`, 'Percentage']}
                           />
@@ -724,8 +722,8 @@ const Dashboard = () => {
                     <div className="mt-2 grid grid-cols-3 gap-2">
                       {deepfakeRiskData.map((entry, index) => (
                         <div key={index} className="flex flex-col items-center">
-                          <div 
-                            className="w-3 h-3 rounded-full mb-1" 
+                          <div
+                            className="w-3 h-3 rounded-full mb-1"
                             style={{ backgroundColor: Object.values(RISK_COLORS)[index] }}
                           ></div>
                           <span className="text-white/70 text-xs">{entry.name}</span>
@@ -747,7 +745,7 @@ const Dashboard = () => {
                   </CardFooter>
                 </Card>
               </motion.div>
-              
+
               {/* Protection Recommendations */}
               <motion.div variants={itemVariants} className="md:col-span-2">
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -794,13 +792,13 @@ const Dashboard = () => {
                             <p className="text-xs text-white/70">{rec.description}</p>
                             <div className="flex mt-2 space-x-2">
                               <Badge className={`
-                                ${rec.impact === 'high' ? 'bg-green-500/20 text-green-500 border-green-500/30' : 
+                                ${rec.impact === 'high' ? 'bg-green-500/20 text-green-500 border-green-500/30' :
                                   'bg-amber-500/20 text-amber-500 border-amber-500/30'}
                               `}>
                                 {rec.impact === 'high' ? 'High Impact' : 'Medium Impact'}
                               </Badge>
                               <Badge className={`
-                                ${rec.effort === 'low' ? 'bg-green-500/20 text-green-500 border-green-500/30' : 
+                                ${rec.effort === 'low' ? 'bg-green-500/20 text-green-500 border-green-500/30' :
                                   'bg-amber-500/20 text-amber-500 border-amber-500/30'}
                               `}>
                                 {rec.effort === 'low' ? 'Low Effort' : 'Medium Effort'}
@@ -818,7 +816,7 @@ const Dashboard = () => {
               </motion.div>
             </motion.div>
           </TabsContent>
-          
+
           {/* Valuation Engine Tab */}
           <TabsContent value="valuation">
             <motion.div
@@ -873,7 +871,7 @@ const Dashboard = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="h-[300px]">
                       <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={[
@@ -884,8 +882,8 @@ const Dashboard = () => {
                         ]}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                           <XAxis dataKey="name" stroke="#666" />
-                          <YAxis stroke="#666" tickFormatter={(value) => `$${value/1000}k`} />
-                          <Tooltip 
+                          <YAxis stroke="#666" tickFormatter={(value) => `$${value / 1000}k`} />
+                          <Tooltip
                             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}
                             formatter={(value) => [`$${value.toLocaleString()}`, 'Value']}
                           />
@@ -898,7 +896,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* Valuation Factors */}
               <motion.div variants={itemVariants} className="md:col-span-2">
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -911,39 +909,39 @@ const Dashboard = () => {
                   <CardContent>
                     <div className="space-y-4">
                       {[
-                        { 
-                          name: "Market Demand", 
-                          score: 85, 
+                        {
+                          name: "Market Demand",
+                          score: 85,
                           impact: "positive",
                           description: "Strong market interest in your content category"
                         },
-                        { 
-                          name: "Uniqueness", 
-                          score: 92, 
+                        {
+                          name: "Uniqueness",
+                          score: 92,
                           impact: "positive",
                           description: "Highly distinctive compared to similar works"
                         },
-                        { 
-                          name: "Revenue History", 
-                          score: 78, 
+                        {
+                          name: "Revenue History",
+                          score: 78,
                           impact: "positive",
                           description: "Consistent earnings with growth potential"
                         },
-                        { 
-                          name: "Legal Protection", 
-                          score: 65, 
+                        {
+                          name: "Legal Protection",
+                          score: 65,
                           impact: "neutral",
                           description: "Adequate but could be strengthened"
                         },
-                        { 
-                          name: "Market Saturation", 
-                          score: 45, 
+                        {
+                          name: "Market Saturation",
+                          score: 45,
                           impact: "negative",
                           description: "Increasing competition in your segment"
                         },
-                        { 
-                          name: "Technological Relevance", 
-                          score: 88, 
+                        {
+                          name: "Technological Relevance",
+                          score: 88,
                           impact: "positive",
                           description: "Well-positioned for emerging tech trends"
                         }
@@ -955,20 +953,20 @@ const Dashboard = () => {
                               <p className="text-white/70 text-xs">{factor.description}</p>
                             </div>
                             <Badge className={`
-                              ${factor.impact === 'positive' ? 'bg-green-500/20 text-green-500 border-green-500/30' : 
-                                factor.impact === 'neutral' ? 'bg-amber-500/20 text-amber-500 border-amber-500/30' : 
-                                'bg-red-500/20 text-red-500 border-red-500/30'}
+                              ${factor.impact === 'positive' ? 'bg-green-500/20 text-green-500 border-green-500/30' :
+                                factor.impact === 'neutral' ? 'bg-amber-500/20 text-amber-500 border-amber-500/30' :
+                                  'bg-red-500/20 text-red-500 border-red-500/30'}
                             `}>
                               {factor.score}
                             </Badge>
                           </div>
-                          <Progress 
-                            value={factor.score} 
-                            className="h-2 bg-white/10" 
+                          <Progress
+                            value={factor.score}
+                            className="h-2 bg-white/10"
                             indicatorClassName={`
-                              ${factor.impact === 'positive' ? 'bg-green-500' : 
-                                factor.impact === 'neutral' ? 'bg-amber-500' : 
-                                'bg-red-500'}
+                              ${factor.impact === 'positive' ? 'bg-green-500' :
+                                factor.impact === 'neutral' ? 'bg-amber-500' :
+                                  'bg-red-500'}
                             `}
                           />
                         </div>
@@ -977,7 +975,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* Monetization Opportunities */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -1009,9 +1007,9 @@ const Dashboard = () => {
                           match: "medium"
                         },
                         {
-                          title: "Subscription Access",
-                          description: "Create premium access to your content library",
-                          potential: "$2,000 - $5,000 monthly",
+                          title: "Underwriting Incentives",
+                          description: "Measurement of Risk Insights",
+                          potential: "$5,000 - $10,000 monthly",
                           match: "medium"
                         }
                       ].map((opp, index) => (
@@ -1021,7 +1019,7 @@ const Dashboard = () => {
                           <div className="flex justify-between items-center">
                             <p className="text-xs text-reiv-purple-light">{opp.potential}</p>
                             <Badge className={`
-                              ${opp.match === 'high' ? 'bg-green-500/20 text-green-500 border-green-500/30' : 
+                              ${opp.match === 'high' ? 'bg-green-500/20 text-green-500 border-green-500/30' :
                                 'bg-amber-500/20 text-amber-500 border-amber-500/30'}
                             `}>
                               {opp.match === 'high' ? 'High Match' : 'Medium Match'}
@@ -1040,7 +1038,7 @@ const Dashboard = () => {
               </motion.div>
             </motion.div>
           </TabsContent>
-          
+
           {/* AI Index Tab */}
           <TabsContent value="ai-index">
             <motion.div
@@ -1092,21 +1090,21 @@ const Dashboard = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="h-[300px]">
                       <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={aiIndexData}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                           <XAxis dataKey="name" stroke="#666" />
                           <YAxis domain={[0, 100]} stroke="#666" />
-                          <Tooltip 
+                          <Tooltip
                             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}
                             formatter={(value) => [`${value}`, 'AI Index']}
                           />
-                          <Line 
-                            type="monotone" 
-                            dataKey="index" 
-                            stroke="#9D4EDD" 
+                          <Line
+                            type="monotone"
+                            dataKey="index"
+                            stroke="#9D4EDD"
                             strokeWidth={2}
                             dot={{ r: 4, fill: '#9D4EDD' }}
                             activeDot={{ r: 6, fill: '#9D4EDD' }}
@@ -1117,7 +1115,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* AI Competitive Analysis */}
               <motion.div variants={itemVariants} className="md:col-span-2">
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -1130,27 +1128,27 @@ const Dashboard = () => {
                   <CardContent>
                     <div className="space-y-6">
                       {[
-                        { 
-                          name: "Originality", 
-                          yourScore: 95, 
+                        {
+                          name: "Originality",
+                          yourScore: 95,
                           aiAverage: 65,
                           description: "Your content shows high originality compared to AI-generated work"
                         },
-                        { 
-                          name: "Complexity", 
-                          yourScore: 88, 
+                        {
+                          name: "Complexity",
+                          yourScore: 88,
                           aiAverage: 72,
                           description: "Your work demonstrates sophisticated structure and nuance"
                         },
-                        { 
-                          name: "Emotional Impact", 
-                          yourScore: 90, 
+                        {
+                          name: "Emotional Impact",
+                          yourScore: 90,
                           aiAverage: 45,
                           description: "Your content creates stronger emotional connections"
                         },
-                        { 
-                          name: "Technical Quality", 
-                          yourScore: 85, 
+                        {
+                          name: "Technical Quality",
+                          yourScore: 85,
                           aiAverage: 80,
                           description: "Your technical execution is slightly above AI capabilities"
                         }
@@ -1174,14 +1172,14 @@ const Dashboard = () => {
                               </div>
                             </div>
                             <div className="overflow-hidden h-2 text-xs flex rounded bg-white/10 mt-1">
-                              <div 
-                                className="bg-reiv-purple-light h-full" 
+                              <div
+                                className="bg-reiv-purple-light h-full"
                                 style={{ width: `${metric.yourScore}%` }}
                               ></div>
                             </div>
                             <div className="overflow-hidden h-2 text-xs flex rounded bg-white/10 mt-1">
-                              <div 
-                                className="bg-gray-500 h-full" 
+                              <div
+                                className="bg-gray-500 h-full"
                                 style={{ width: `${metric.aiAverage}%` }}
                               ></div>
                             </div>
@@ -1192,7 +1190,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* AI Protection Strategies */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -1268,7 +1266,7 @@ const Dashboard = () => {
               </motion.div>
             </motion.div>
           </TabsContent>
-          
+
           {/* Reports Tab */}
           <TabsContent value="reports">
             <motion.div
@@ -1314,8 +1312,8 @@ const Dashboard = () => {
                           type: "pdf"
                         },
                         {
-                          title: "Legal Protection Status",
-                          description: "Current state of legal protections for your IP",
+                          title: "Underwriting Performance",
+                          description: "Revenue per risk tier report for the list of IP assets collection",
                           date: "September 12, 2023",
                           type: "pdf"
                         }
@@ -1338,7 +1336,7 @@ const Dashboard = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-              
+
               {/* Generate Custom Report */}
               <motion.div variants={itemVariants}>
                 <Card className="bg-gradient-card border-reiv-purple/20 h-full">
@@ -1368,7 +1366,7 @@ const Dashboard = () => {
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="bg-background/30 p-4 rounded-lg">
                         <h4 className="text-sm font-medium text-white mb-2">Time Period</h4>
                         <div className="space-y-2">
@@ -1386,7 +1384,7 @@ const Dashboard = () => {
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="bg-background/30 p-4 rounded-lg">
                         <h4 className="text-sm font-medium text-white mb-2">Format</h4>
                         <div className="space-y-2">
@@ -1412,7 +1410,7 @@ const Dashboard = () => {
                   </CardFooter>
                 </Card>
               </motion.div>
-              
+
               {/* Report Insights */}
               <motion.div variants={itemVariants} className="md:col-span-3">
                 <Card className="bg-gradient-card border-reiv-purple/20">

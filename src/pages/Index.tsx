@@ -1,16 +1,16 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, 
-  Brain, 
-  BarChart3, 
-  Shield, 
-  LineChart, 
-  AlertTriangle, 
-  DollarSign, 
-  Users, 
-  Building, 
+import {
+  ArrowRight,
+  Brain,
+  BarChart3,
+  Shield,
+  LineChart,
+  AlertTriangle,
+  DollarSign,
+  Users,
+  Building,
   Scale,
   Github,
   Twitter,
@@ -24,7 +24,7 @@ import Navbar from '@/components/Navbar';
 
 const Index = () => {
   const howItWorksRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     // Add any initialization logic here
   }, []);
@@ -32,7 +32,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 md:pt-32 md:pb-40 bg-gradient-hero grid-pattern">
         <div className="absolute inset-0 overflow-hidden">
@@ -42,7 +42,7 @@ const Index = () => {
             <div className="absolute bottom-1/4 left-1/3 w-64 h-64 rounded-full bg-reiv-purple/30 blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             <motion.div
@@ -54,7 +54,7 @@ const Index = () => {
                 Unlock the True Value of IP Assets
               </h1>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -64,24 +64,24 @@ const Index = () => {
                 AI-powered insights for smarter decisions in creative finance.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-reiv-purple hover:bg-reiv-purple-dark text-white px-8 py-6 text-lg"
                 onClick={() => howItWorksRef.current?.scrollIntoView({ behavior: 'smooth' })}
               >
                 See How It Works
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="border-reiv-purple-light text-white hover:bg-reiv-purple-light/10 px-8 py-6 text-lg"
               >
                 Request Early Access
@@ -90,7 +90,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* How It Works Section */}
       <section ref={howItWorksRef} id="how-it-works" className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,28 +102,28 @@ const Index = () => {
               Our AI Agent analyzes, predicts, and delivers actionable insights about your IP assets.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { 
-                icon: <Brain className="h-10 w-10 text-reiv-purple-light" />, 
-                title: "Data Analysis", 
-                description: "AI Agent collects and analyzes IP performance data" 
+              {
+                icon: <Brain className="h-10 w-10 text-reiv-purple-light" />,
+                title: "Data Analysis",
+                description: "AI Agent collects and analyzes IP performance data"
               },
-              { 
-                icon: <BarChart3 className="h-10 w-10 text-reiv-purple-light" />, 
-                title: "Performance Prediction", 
-                description: "Predictive models forecast future IP value" 
+              {
+                icon: <BarChart3 className="h-10 w-10 text-reiv-purple-light" />,
+                title: "Performance Prediction",
+                description: "Predictive models forecast future IP value"
               },
-              { 
-                icon: <AlertTriangle className="h-10 w-10 text-reiv-purple-light" />, 
-                title: "Risk Flagging", 
-                description: "Potential risks are identified and prioritized" 
+              {
+                icon: <AlertTriangle className="h-10 w-10 text-reiv-purple-light" />,
+                title: "Risk Flagging",
+                description: "Potential risks are identified and prioritized"
               },
-              { 
-                icon: <DollarSign className="h-10 w-10 text-reiv-purple-light" />, 
-                title: "Valuation", 
-                description: "Transparent, data-backed IP valuations" 
+              {
+                icon: <DollarSign className="h-10 w-10 text-reiv-purple-light" />,
+                title: "Valuation",
+                description: "Transparent, data-backed IP valuations"
               }
             ].map((step, index) => (
               <motion.div
@@ -145,7 +145,7 @@ const Index = () => {
                     <p className="text-white/70">{step.description}</p>
                   </CardContent>
                 </Card>
-                
+
                 {index < 3 && (
                   <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
                     <ArrowRight className="h-6 w-6 text-reiv-purple-light" />
@@ -156,7 +156,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Who It's For Section */}
       <section className="py-20 md:py-32 bg-reiv-black">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,23 +168,23 @@ const Index = () => {
               REIV IP Signals serves multiple stakeholders in the creative economy.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { 
-                icon: <Users className="h-12 w-12 text-reiv-purple-light" />, 
-                title: "Creators", 
-                description: "Understand and monetize your IP's true value with data-backed insights that help you make strategic decisions." 
+              {
+                icon: <Users className="h-12 w-12 text-reiv-purple-light" />,
+                title: "Creative & AI-Generated Content Platforms",
+                description: "Unlock the full value of your digital IP with AI-powered analytics and monetization tools. Make data-driven decisions to optimize licensing, partnerships, and revenue streams."
               },
-              { 
-                icon: <Building className="h-12 w-12 text-reiv-purple-light" />, 
-                title: "Lenders", 
-                description: "Assess IP risk before issuing capital with comprehensive analytics that reduce uncertainty." 
+              {
+                icon: <Building className="h-12 w-12 text-reiv-purple-light" />,
+                title: "Gaming Companies",
+                description: "From in-game cosmetics to generative AI content, we help studios and publishers identify undervalued IP, optimize licensing deals, and predict market trends."
               },
-              { 
-                icon: <Scale className="h-12 w-12 text-reiv-purple-light" />, 
-                title: "Underwriters", 
-                description: "Make informed coverage decisions with predictive risk models specifically designed for digital assets." 
+              {
+                icon: <Scale className="h-12 w-12 text-reiv-purple-light" />,
+                title: "IP & Media Focused Law Firms",
+                description: "Unlock hidden value in their clients' intellectual property in Visual Content. From copyright valuation to licensing strategy, turn data into actionable legal leverage."
               }
             ].map((audience, index) => (
               <motion.div
@@ -210,7 +210,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Key Features Section */}
       <section id="features" className="py-20 md:py-32 bg-background grid-pattern">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -222,28 +222,28 @@ const Index = () => {
               Powerful tools to transform how you understand and leverage IP assets.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
-              { 
-                icon: <LineChart className="h-8 w-8 text-reiv-purple-light" />, 
-                title: "Real-time Performance Tracking", 
-                description: "Monitor your IP assets with live data streams and instant notifications about significant changes." 
+              {
+                icon: <LineChart className="h-8 w-8 text-reiv-purple-light" />,
+                title: "Real-time Performance Tracking",
+                description: "Monitor your IP assets with live data streams and instant notifications about significant changes."
               },
-              { 
-                icon: <AlertTriangle className="h-8 w-8 text-reiv-purple-light" />, 
-                title: "Predictive Risk Analysis", 
-                description: "Anticipate potential issues before they impact value with AI-powered risk assessment." 
+              {
+                icon: <AlertTriangle className="h-8 w-8 text-reiv-purple-light" />,
+                title: "Predictive Risk Analysis",
+                description: "Anticipate potential issues before they impact value with AI-powered risk assessment."
               },
-              { 
-                icon: <Shield className="h-8 w-8 text-reiv-purple-light" />, 
-                title: "Transparent Valuation Model", 
-                description: "Understand exactly how valuations are calculated with full visibility into our methodology." 
+              {
+                icon: <Shield className="h-8 w-8 text-reiv-purple-light" />,
+                title: "Transparent Valuation Model",
+                description: "Understand exactly how valuations are calculated with full visibility into our methodology."
               },
-              { 
-                icon: <BarChart3 className="h-8 w-8 text-reiv-purple-light" />, 
-                title: "Smart Dashboards & Alerts", 
-                description: "Customize your view with intuitive dashboards and receive timely alerts about your portfolio." 
+              {
+                icon: <BarChart3 className="h-8 w-8 text-reiv-purple-light" />,
+                title: "Smart Dashboards & Alerts",
+                description: "Customize your view with intuitive dashboards and receive timely alerts about your portfolio."
               }
             ].map((feature, index) => (
               <motion.div
@@ -269,7 +269,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Use Cases Section */}
       <section id="use-cases" className="py-20 md:py-32 bg-reiv-black">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -281,20 +281,20 @@ const Index = () => {
               Discover how REIV IP Signals transforms intellectual property into financial opportunities.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { 
-                title: "IP as Collateral", 
-                description: "Secure loans using your intellectual property as collateral, backed by reliable valuation data." 
+              {
+                title: "IP as Collateral",
+                description: "Secure loans using your intellectual property as collateral, backed by reliable valuation data."
               },
-              { 
-                title: "Insurance Underwriting", 
-                description: "Enable insurers to accurately assess and price coverage for digital and creative assets." 
+              {
+                title: "Insurance Underwriting",
+                description: "Enable insurers to accurately assess and price coverage for digital and creative assets."
               },
-              { 
-                title: "Investment Risk Profiling", 
-                description: "Help investors evaluate IP portfolios with comprehensive risk and performance analytics." 
+              {
+                title: "Investment Risk Profiling",
+                description: "Help investors evaluate IP portfolios with comprehensive risk and performance analytics."
               }
             ].map((useCase, index) => (
               <motion.div
@@ -318,7 +318,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Banner */}
       <section className="py-16 md:py-24 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -332,8 +332,8 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
                 Bring clarity to creative assets.<br />Unlock financing with confidence.
               </h2>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-reiv-purple hover:bg-reiv-purple-dark text-white px-8 py-6 text-lg mt-4"
               >
                 Join the Waitlist
@@ -342,7 +342,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Footer */}
       <footer className="py-12 md:py-16 bg-background border-t border-reiv-purple/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -361,7 +361,7 @@ const Index = () => {
                 <Github className="h-5 w-5 text-white/70 hover:text-reiv-purple-light transition-colors" />
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold text-white mb-4">Company</h3>
               <ul className="space-y-2">
@@ -370,7 +370,7 @@ const Index = () => {
                 <li><Link to="/contact" className="text-white/70 hover:text-reiv-purple-light transition-colors">Contact</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold text-white mb-4">Legal</h3>
               <ul className="space-y-2">
@@ -379,9 +379,9 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          
+
           <Separator className="my-8 bg-reiv-purple/20" />
-          
+
           <div className="text-center text-white/50 text-sm">
             &copy; {new Date().getFullYear()} REIV IP Signals. All rights reserved.
           </div>
